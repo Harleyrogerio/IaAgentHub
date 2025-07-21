@@ -8,8 +8,10 @@ export interface WebhookMessage {
 }
 
 export interface WebhookResponse {
-  message: string;
-  type?: "text" | "audio";
+  messages: Array<{
+    message: string;
+    type?: "text" | "audio";
+  }>;
 }
 
 export async function sendToWebhook(payload: WebhookMessage): Promise<WebhookResponse> {
