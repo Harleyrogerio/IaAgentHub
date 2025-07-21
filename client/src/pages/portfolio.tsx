@@ -237,7 +237,7 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-space-800 border-t border-space-600 py-8 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-space-800 border-t border-space-600 py-8 px-4">
         <div className="container mx-auto text-center">
           <div className="flex justify-center items-center mb-4">
             <img 

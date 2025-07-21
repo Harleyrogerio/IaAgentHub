@@ -8,6 +8,15 @@ This is a full-stack web application showcasing various AI agents for different 
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+✓ Created .env file with logo and webhook URL configuration  
+✓ Simplified footer design (removed extra padding and sections)  
+✓ Added Dockerfile for containerization with Node.js 20  
+✓ Created .dockerignore to optimize build process  
+✓ Verified WhatsApp integration with correct phone number  
+→ All components ready for deployment
+
 ## System Architecture
 
 ### Frontend Architecture
