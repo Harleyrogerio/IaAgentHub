@@ -92,7 +92,7 @@ export default function Portfolio() {
   const [sessionId, setSessionId] = useState<string>("");
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const logoUrl = import.meta.env.VITE_LOGO_URL || "https://images.unsplash.com/photo-1639322537504-6427a16b0a28?w=200&h=80&fit=crop&auto=format";
+
 
   const handleTestAgent = (agentId: string) => {
     const agent = agents.find(a => a.id === agentId);
@@ -118,11 +118,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <img 
-                src={logoUrl} 
-                alt="Logo IA Agents" 
-                className="h-10 w-auto rounded-lg"
-              />
+              <img src={import.meta.env.VITE_LOGO_URL || '/logo.png'} alt="Logo" className="h-8" />
               <span className="ml-3 text-xl font-bold gradient-bg bg-clip-text text-transparent">
                 IA Agents
               </span>
@@ -240,11 +236,7 @@ export default function Portfolio() {
       <footer className="bg-space-800 border-t border-space-600 py-8 px-4">
         <div className="container mx-auto text-center">
           <div className="flex justify-center items-center mb-4">
-            <img 
-              src={logoUrl} 
-              alt="Logo IA Agents" 
-              className="h-8 w-auto rounded"
-            />
+            <img src={import.meta.env.VITE_LOGO_URL || '/logo.png'} alt="Logo" className="h-8" />
             <span className="ml-3 text-lg font-bold gradient-bg bg-clip-text text-transparent">
               IA Agents
             </span>
