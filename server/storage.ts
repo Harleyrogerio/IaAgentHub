@@ -78,7 +78,7 @@ export class MemStorage implements IStorage {
       sessionId: insertMessage.sessionId,
       sender: insertMessage.sender,
       message: insertMessage.message,
-      messageType: insertMessage.messageType,
+      messageType: insertMessage.messageType || "text",
       createdAt: new Date(),
     };
 

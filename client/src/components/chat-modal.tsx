@@ -82,15 +82,37 @@ export function ChatModal({ isOpen, onClose, agent, sessionId }: ChatModalProps)
       
       setIsTyping(false);
       
-      const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        sender: "bot",
-        content: response.message,
-        type: response.type || "text",
-        timestamp: new Date(),
-      };
+      // Process multiple messages with 2s delay between them
+      if (response.messages && response.messages.length > 0) {
+        for (let i = 0; i < response.messages.length; i++) {
+          const messageData = response.messages[i];
+          
+          // Add delay between messages (except for the first one)
+          if (i > 0) {
+            await new Promise(resolve => setTimeout(resolve, 2000));
+          }
+          
+          const botMessage: Message = {
+            id: (Date.now() + i).toString(),
+            sender: "bot",
+            content: messageData.message,
+            type: messageData.type || "text",
+            timestamp: new Date(),
+          };
 
-      setMessages(prev => [...prev, botMessage]);
+          setMessages(prev => [...prev, botMessage]);
+        }
+      } else {
+        // Fallback for old format
+        const botMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          sender: "bot",
+          content: "Resposta recebida do webhook.",
+          type: "text",
+          timestamp: new Date(),
+        };
+        setMessages(prev => [...prev, botMessage]);
+      }
     } catch (error) {
       setIsTyping(false);
       const errorMessage: Message = {
@@ -221,8 +243,10 @@ export function ChatModal({ isOpen, onClose, agent, sessionId }: ChatModalProps)
               variant="outline"
               size="icon"
               onClick={handleAudioToggle}
-              className={`bg-space-700 hover:bg-space-600 border-space-600 ${
-                isRecording ? "text-red-400" : "text-gray-400"
+              className={`transition-all duration-300 ${
+                isRecording 
+                  ? "bg-red-600 hover:bg-red-700 border-red-500 text-white animate-pulse" 
+                  : "bg-space-700 hover:bg-space-600 border-space-600 text-gray-400 hover:text-white"
               }`}
             >
               {isRecording ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
