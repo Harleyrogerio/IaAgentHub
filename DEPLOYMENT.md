@@ -1,17 +1,48 @@
 # 🚀 Deployment Guide: Replit → Netlify
 
-## Quick Deploy (Frontend Only)
+## 🛠️ TROUBLESHOOTING GUIA COMPLETO
 
-### Netlify Configuration:
+### ⚙️ Configurações Corretas do Netlify:
 - **Build command:** `npm run build`
 - **Publish directory:** `dist/public`
-- **Node version:** 20.x
+- **Node version:** `20.18.1` (IMPORTANTE: Use exatamente esta versão)
+- **Base directory:** (deixe vazio)
+- **Functions directory:** (deixe vazio para este projeto)
 
-### Environment Variables:
-Add these in Netlify dashboard → Site settings → Environment variables:
+### 🔧 Environment Variables (OBRIGATÓRIAS):
+Configure no Netlify dashboard → Site settings → Environment variables:
+```bash
+# ESSENCIAL - Endpoint para comunicação com IA
+VITE_WEBHOOK_URL=https://seu-webhook-endpoint.com
+
+# OPCIONAL - URL do seu logo
+VITE_LOGO_URL=https://seu-logo.com/logo.png
+
+# RECOMENDADO - Para builds mais rápidos
+CI=false
 ```
-VITE_WEBHOOK_URL=your-webhook-endpoint-url
-VITE_LOGO_URL=your-logo-url (optional)
+
+### 🚨 PROBLEMAS COMUNS E SOLUÇÕES:
+
+#### ❌ Erro: "Command failed with exit code 1"
+**Causa:** Versão incompatível do Node.js
+**Solução:** Configure Node version para `20.18.1` no netlify.toml
+
+#### ❌ Erro: "Module not found" ou dependências
+**Causa:** Cache corrompido ou dependências desatualizadas
+**Solução:** 
+1. Limpe o cache: Site settings → Build & deploy → Clear cache
+2. Force um novo deploy
+
+#### ❌ Erro: "Page not found" após deploy
+**Causa:** Routing do SPA não configurado
+**Solução:** Arquivo `_redirects` já está incluído no build
+
+#### ❌ Build passa mas site não carrega
+**Causa:** Variável VITE_WEBHOOK_URL não configurada
+**Solução:** Defina a variável mesmo que temporariamente:
+```
+VITE_WEBHOOK_URL=https://exemplo.com
 ```
 
 ## File Structure After Build:
