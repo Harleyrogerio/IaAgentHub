@@ -117,9 +117,9 @@ export default function Portfolio() {
       <header className="bg-space-800/80 backdrop-blur-sm border-b border-space-600 sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <img src={import.meta.env.VITE_LOGO_URL || '/hartech-logo.svg'} alt="Logo Hartech" className="h-12" />
-              <span className="ml-3 text-xl font-bold text-[#00f6ff]">
+            <div className="logo-section flex items-center gap-3">
+              <img src={import.meta.env.VITE_LOGO_URL || '/hartech-logo.svg'} alt="HARTECH" className="logo h-10 w-auto" />
+              <span className="brand-name text-xl font-bold text-[#00f6ff]">
                 Hartech
               </span>
             </div>
@@ -237,9 +237,8 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="bg-space-800 border-t border-space-600 py-8 px-4">
         <div className="container mx-auto text-center">
-          <div className="flex justify-center items-center mb-4">
-            <img src={import.meta.env.VITE_LOGO_URL || '/hartech-logo.svg'} alt="Logo Hartech" className="h-8" />
-            <span className="ml-3 text-lg font-bold text-[#00f6ff]">
+          <div className="mb-4">
+            <span className="text-lg font-bold text-[#00f6ff]">
               Hartech
             </span>
           </div>

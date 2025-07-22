@@ -120,6 +120,23 @@
   .whatsapp-btn:hover {
     background-color: var(--whatsapp-hover);
   }
+
+  /* Logo section styles */
+  .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    height: 40px;
+    width: auto;
+  }
+
+  /* Remove any other logo duplicates */
+  .hero-section img:not(.logo) {
+    display: none;
+  }
 }
 
 @layer utilities {

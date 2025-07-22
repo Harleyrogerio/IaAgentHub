@@ -27,6 +27,7 @@ Preferred communication style: Simple, everyday language.
 ✓ Updated branding to Hartech with custom logo and colors
 ✓ WhatsApp integration with correct phone number (5511996084893)
 ✓ Hartech cyan theme (#00f6ff) applied throughout
+✓ Fixed logo duplication - clean header with single logo
 → Portfolio completo com visual Hartech, pronto para deploy
 
 ## System Architecture
