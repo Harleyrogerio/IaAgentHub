@@ -1,0 +1,33 @@
+# Dockerfile limpo para produção - sem dependências desnecessárias do Vite
+FROM node:20-alpine
+
+# Instalar git (necessário para algumas dependências)
+RUN apk add --no-cache git
+
+# Definir diretório de trabalho
+WORKDIR /app
+
+# Copiar arquivos de configuração
+COPY package.production.json package.json
+COPY package-lock.json* ./
+
+# Instalar todas as dependências (necessárias para build)
+RUN npm ci
+
+# Copiar código fonte
+COPY . .
+
+# Build da aplicação usando arquivo production
+RUN npm run build
+
+# Remover devDependencies para reduzir tamanho da imagem
+RUN npm prune --production
+
+# Expor porta
+EXPOSE 5000
+
+# Configurar ambiente de produção
+ENV NODE_ENV=production
+
+# Iniciar aplicação
+CMD ["npm", "start"]
