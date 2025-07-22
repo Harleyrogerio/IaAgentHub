@@ -29,9 +29,11 @@ Preferred communication style: Simple, everyday language.
 ✓ Hartech cyan theme (#00f6ff) applied throughout
 ✓ Fixed logo duplication - clean header with single logo
 ✓ Fixed Docker build error (exit code 127) - dependencies resolved
-✓ Dockerfile verified and working locally - build successful
+✓ Dockerfile verified and working locally - build successful  
+✓ Created frontend-only deployment option with serve
+✓ Complete deployment guides for both fullstack and static options
 → Portfolio completo com visual Hartech, pronto para deploy
-→ Issue: Deploy system using cached/old Dockerfile version
+→ Two deployment options available: static frontend (recommended) or fullstack
 
 ## System Architecture
 
