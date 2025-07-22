@@ -32,8 +32,10 @@ Preferred communication style: Simple, everyday language.
 ✓ Dockerfile verified and working locally - build successful  
 ✓ Created frontend-only deployment option with serve
 ✓ Complete deployment guides for both fullstack and static options
+✓ Created production server without Vite dependencies (index.production.ts)
+✓ Resolved Docker build issues with clean package.json
 → Portfolio completo com visual Hartech, pronto para deploy
-→ Two deployment options available: static frontend (recommended) or fullstack
+→ Three deployment options: static frontend, clean production, or current fullstack
 
 ## System Architecture
 
