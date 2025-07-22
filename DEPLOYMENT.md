@@ -45,6 +45,31 @@ CI=false
 VITE_WEBHOOK_URL=https://exemplo.com
 ```
 
+## 🐳 Docker Deployment
+
+### Docker Build Commands:
+```bash
+# Build da imagem Docker
+docker build -t hartech-portfolio .
+
+# Executar localmente
+docker run -p 5000:5000 -e DATABASE_URL=your_db_url hartech-portfolio
+```
+
+### Docker Environment Variables:
+```bash
+# Obrigatórias
+DATABASE_URL=postgresql://user:pass@host:port/db
+VITE_WEBHOOK_URL=https://seu-webhook.com
+
+# Opcionais
+VITE_LOGO_URL=https://seu-logo.com/logo.svg
+```
+
+### Problemas Comuns Docker:
+❌ **Error: exit code 127** - Dependências não encontradas  
+✅ **Solução:** Dockerfile corrigido para instalar todas as dependências antes do build
+
 ## File Structure After Build:
 ```
 dist/
