@@ -28,6 +28,7 @@ Preferred communication style: Simple, everyday language.
 ✓ WhatsApp integration with correct phone number (5511996084893)
 ✓ Hartech cyan theme (#00f6ff) applied throughout
 ✓ Fixed logo duplication - clean header with single logo
+✓ Fixed Docker build error (exit code 127) - dependencies resolved
 → Portfolio completo com visual Hartech, pronto para deploy
 
 ## System Architecture
