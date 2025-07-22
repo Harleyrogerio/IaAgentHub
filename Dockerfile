@@ -1,26 +1,26 @@
-# Use Node.js 20 as base image
+# Use Node.js 20 como imagem base
 FROM node:20-alpine
 
-# Set working directory
+# Define o diretório de trabalho
 WORKDIR /app
 
-# Copy package files
+# Copia os arquivos de dependência
 COPY package*.json ./
 
-# Install dependencies
+# Instala só o necessário para produção
 RUN npm install
 
-# Copy source code
+# Copia o restante do projeto
 COPY . .
 
-# Build the application (⚠️ agora sem Vite, só o backend)
+# Executa o build do backend
 RUN npm run build
 
-# Expose port (default port for Express)
+# Expõe a porta do Express
 EXPOSE 5000
 
-# Set environment to production
+# Define o ambiente como produção
 ENV NODE_ENV=production
 
-# Start the application
+# Inicia a aplicação
 CMD ["npm", "start"]
