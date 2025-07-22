@@ -12,11 +12,11 @@
 ### 🔧 Environment Variables (OBRIGATÓRIAS):
 Configure no Netlify dashboard → Site settings → Environment variables:
 ```bash
-# ESSENCIAL - Endpoint para comunicação com IA
+# ESSENCIAL - Endpoint para comunicação com IA  
 VITE_WEBHOOK_URL=https://seu-webhook-endpoint.com
 
-# OPCIONAL - URL do seu logo
-VITE_LOGO_URL=https://seu-logo.com/logo.png
+# OPCIONAL - Logo customizado da Hartech (já incluído no projeto)
+VITE_LOGO_URL=https://hartech.com/logo.svg
 
 # RECOMENDADO - Para builds mais rápidos
 CI=false
