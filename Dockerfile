@@ -8,12 +8,12 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm install
 
 # Copy source code
 COPY . .
 
-# Build the application
+# Build the application (⚠️ agora sem Vite, só o backend)
 RUN npm run build
 
 # Expose port (default port for Express)
