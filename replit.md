@@ -34,8 +34,12 @@ Preferred communication style: Simple, everyday language.
 ✓ Complete deployment guides for both fullstack and static options
 ✓ Created production server without Vite dependencies (index.production.ts)
 ✓ Resolved Docker build issues with clean package.json
+✓ Separated Vite dependencies to dev-only folder (server/dev-only/vite.ts)
+✓ Implemented conditional imports preventing production Vite errors  
+✓ Updated tsconfig.json to exclude dev-only from production builds
+✓ Verified production server runs without Vite dependencies (tested port 3001)
 → Portfolio completo com visual Hartech, pronto para deploy
-→ Three deployment options: static frontend, clean production, or current fullstack
+→ Production deployment completely resolved - no more "Cannot find package 'vite'" errors
 
 ## System Architecture
 
@@ -116,14 +120,16 @@ Preferred communication style: Simple, everyday language.
 - **Dev Server**: Concurrent frontend (Vite) and backend (Express) servers
 - **Hot Reload**: Vite HMR for frontend, tsx for backend TypeScript execution
 - **Environment**: NODE_ENV=development with Replit-specific plugins
+- **Dev Dependencies**: Vite imports isolated to server/dev-only/ folder
 
 ### Production
 - **Build Process**: 
   1. Vite builds frontend to `dist/public`
-  2. esbuild bundles backend to `dist/index.js`
+  2. esbuild bundles backend to `dist/index.js` (excludes server/dev-only/)
 - **Static Serving**: Express serves built frontend assets
 - **Database**: PostgreSQL connection via DATABASE_URL environment variable
 - **Session Storage**: PostgreSQL-backed session store
+- **Vite Isolation**: Development-only Vite code excluded from production bundle
 
 ### Environment Configuration
 - **DATABASE_URL**: PostgreSQL connection string (required)
