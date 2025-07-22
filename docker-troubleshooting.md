@@ -7,11 +7,16 @@
 ERROR: failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code 127
 ```
 
-### 🔍 Causa:
-- Exit code 127 = "command not found"
-- O problema estava no Dockerfile original que usava `npm ci --only=production`
-- Isso instalava apenas dependências de produção
-- Mas o comando `npm run build` precisa das devDependencies (vite, esbuild, etc.)
+### 🔍 Causas Identificadas:
+1. **Exit code 127** = "command not found"
+2. **Dockerfile original** usava `npm ci --only=production`
+3. **Vite nas devDependencies** - mas código do servidor importa vite
+4. **Build precisa de todas as ferramentas** (vite, esbuild, etc.)
+
+### 🛠️ Soluções Aplicadas:
+1. **Vite movido para dependencies** - agora disponível em produção
+2. **Dockerfile corrigido** - instala todas dependências antes do build
+3. **Build testado** - funcionando perfeitamente no ambiente Replit
 
 ### ✅ Solução Implementada:
 1. **Instalar todas as dependências** com `npm ci` (sem --only=production)

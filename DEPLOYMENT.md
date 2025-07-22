@@ -68,7 +68,10 @@ VITE_LOGO_URL=https://seu-logo.com/logo.svg
 
 ### Problemas Comuns Docker:
 ❌ **Error: exit code 127** - Dependências não encontradas  
-✅ **Solução:** Dockerfile corrigido para instalar todas as dependências antes do build
+✅ **Solução:** 
+1. Dockerfile corrigido para instalar todas as dependências antes do build
+2. Vite movido para dependencies (estava em devDependencies mas servidor precisa dele)
+3. Build testado e funcionando perfeitamente
 
 ## File Structure After Build:
 ```
